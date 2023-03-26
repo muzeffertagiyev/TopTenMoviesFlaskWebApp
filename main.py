@@ -11,14 +11,15 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import RegisterForm, LoginForm, RateMovieForm, AddMovieForm
 
+import os
 
 # Api for addresses and key for getting data from the movie database api website
-MOVIE_DATABASE_API_KEY = "e426388127dc3ada71fcd97938f7c904"
+MOVIE_DATABASE_API_KEY = os.environ.get('API_KEY')
 SEARCH_MOVIE_ENDPOINT ="https://api.themoviedb.org/3/search/movie"
 GETTING_MOVIE_DETAILS_API = "https://api.themoviedb.org/3/movie/"
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap(app)
 
 
@@ -73,20 +74,6 @@ with app.app_context():
         img_url = db.Column(db.String(500), nullable=False)
 
     db.create_all()
-    """#this is the way to add data into our data base manually
-    # new_movie = Movie(
-    # title="Phone Booth",
-    # year=2002,
-    # description="Publicist Stuart Shepard finds himself trapped in a phone booth, pinned down by an extortionist's sniper rifle. Unable to leave or receive outside help, Stuart's negotiation with the caller leads to a jaw-dropping climax.",
-    # rating=7.3,
-    # ranking=10,
-    # review="My favourite character was the caller.",
-    # img_url="https://image.tmdb.org/t/p/w500/tjrX2oWRCM3Tvarz38zlZM7Uc10.jpg"
-    # )
-    # db.session.add(new_movie)
-    # db.session.commit()   
-    """
-    
 
 @app.route("/")
 @login_required
