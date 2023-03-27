@@ -22,8 +22,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap(app)
 
-
-
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
 
 # LOGIN 
 login_manager = LoginManager()
@@ -39,6 +40,11 @@ def unauthorized():
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
 
 # CREATING DATA BASE
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///new-books-collection.db"

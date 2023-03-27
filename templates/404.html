@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}NOT FOUND{% endblock %}
+
+{% block content %}
+<div class="content">
+</br>
+  <h1 class="heading">Not Found Error - 404</h1>
+    <p class="description">Please make sure that you use correct url address</p>
+    <a href="{{url_for('home')}}" class="nav-link">Go to Home Page </a>
+  </div>
+{% endblock %}
