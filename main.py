@@ -34,7 +34,7 @@ login_manager.init_app(app)
 @login_manager.unauthorized_handler
 def unauthorized():
     # Redirect the user to the login page if they are not authenticated
-    flash('You must be logged in to view ,add ,update and delete your movies.')
+    flash('You must be logged in to view ,add ,update and delete your movies.', 'danger')
     return redirect(url_for('login'))
 
 @login_manager.user_loader
@@ -102,11 +102,11 @@ def register():
     if register_form.validate_on_submit():
 
         if User.query.filter_by(name=register_form.name.data).first():
-            flash('There is user with the same name. Please enter another name')
+            flash('There is user with the same name. Please enter another name','danger')
             return redirect(url_for('register'))
 
         if User.query.filter_by(email=register_form.email.data).first():
-            flash('You have already signed up with that email.Log in instead')
+            flash('You have already signed up with that email.Log in instead','danger')
             return redirect(url_for('login'))
 
         hashed_and_salted_password = generate_password_hash(
@@ -122,7 +122,7 @@ def register():
         db.session.commit()
         return redirect(url_for('login'))
 
-
+    flash('Account was created, You can now Log In','primary')
     return render_template("register.html",form=register_form)
 
 
@@ -136,11 +136,11 @@ def login():
         user = User.query.filter_by(email=entered_email).first()
 
         if not user :
-            flash('That email does not exist,please try again Or Register')
+            flash('That email does not exist,please try again Or Register','danger')
             return redirect(url_for('login'))
 
         elif not check_password_hash(pwhash=user.password, password=entered_password):
-            flash('The password is incorrect,please try again')
+            flash('The password is incorrect,please try again','danger')
             return redirect(url_for('login'))
         else:
             login_user(user)
@@ -153,7 +153,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    flash('You logged out.You can login again')
+    flash('You logged out.You can login again','primary')
     return redirect(url_for('login'))
     
 
