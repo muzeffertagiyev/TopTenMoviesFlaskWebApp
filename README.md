@@ -8,16 +8,17 @@ It is a website where you can add register , login add movies by searching from 
 This project was bootstrapped with Python Flask.
 
 
-
 Introduction Video of the Website
 
+https://user-images.githubusercontent.com/75939608/228376846-b51343a7-3a56-45fa-ad6f-4fb49f55d3a9.mov
 
-Introduction Video of My Portfolio Website
+
+
 
 my-website.gif
 
 
-To See My Portfolio Website
+To See The Website
 Try It Out Now!
 
 
