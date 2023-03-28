@@ -24,12 +24,12 @@ Try It Out Now!
 Deployment
 
 Clone the project
+
   git clone https://github.com/muzeffertagiyev/TopTenMoviesWebpage
 
-Environment Variables
+ - Environment Variables
 To run this project, you will need to add the following environment variables to your .env file
 
-For Local installation
 DEBUG = True
 
 MOVIE_DATABASE_API_KEY
