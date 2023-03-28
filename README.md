@@ -10,12 +10,11 @@ This project was bootstrapped with Python Flask.
 
 Introduction Video of the Website
 
-https://user-images.githubusercontent.com/75939608/228376846-b51343a7-3a56-45fa-ad6f-4fb49f55d3a9.mov
 
 
+https://user-images.githubusercontent.com/75939608/228377462-f251601f-ab70-4a5e-b0ea-11ee6a092acf.mov
 
 
-my-website.gif
 
 
 To See The Website
