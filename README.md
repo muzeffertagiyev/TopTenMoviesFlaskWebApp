@@ -20,7 +20,7 @@ https://user-images.githubusercontent.com/75939608/228377462-f251601f-ab70-4a5e-
 
 ## To See The Website
 
-[Try It Out Now!](https://cakmak.netli/)
+<!-- [Try It Out Now!](https://cakmak.netli/) -->
 
 
 ## Deployment
